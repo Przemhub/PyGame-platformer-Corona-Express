@@ -19,14 +19,7 @@ class World:
         self.screen.blit(self.cactus1, (self.screen.get_width() * 4.5 - 40 , self.screen.get_height() / 5 + 3))
         self.collision()
     def collision(self):
-        if self.player.block.y <= 180 and self.player.block.x <= 400 and self.player.block.x >= 100:
-            self.player.block.y += 6
-        if self.player.block.y <= 180 and self.player.block.x == 100:
-            self.player.block.x -= 6
-            self.player.block.y -= 6
-        if self.player.block.y <= 180 and self.player.block.x == 400:
-            self.player.block.x += 6
-            self.player.block.y -= 6
+        pass
     def l_images(self,folder):
         files = listdir(folder)
         self.images = [pygame.image.load(folder + path) for path in files]
@@ -44,8 +37,12 @@ class World:
         self.purple = (127,0,255)
         self.pink = (255,0,255)
         self.cyan = (0,255,255)
+
 class City(World):
-    def __init__(self,screen):
+    def __init__(self,screen,player):
+        self.map = pygame.image.load("World/city.jpg")
         self.screen = screen
+        self.player = player
         self.surface = pygame.Rect(0,self.screen.get_height()/5,screen.get_width(),self.screen.get_height()*4/5)
         super().init_colors()
+
