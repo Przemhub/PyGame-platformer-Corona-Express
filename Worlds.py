@@ -5,7 +5,7 @@ from os import listdir
 
 
 class World:
-    def __init__(self,screen,player):
+    def __init__(self,screen,player,map_x,map_y):
         self.screen=screen
         self.player = player
         self.surface = pygame.Rect(0,self.screen.get_height()*1/5,screen.get_width(),self.screen.get_height()*4/5)
@@ -19,14 +19,7 @@ class World:
         self.screen.blit(self.cactus1, (self.screen.get_width() * 4.5 - 40 , self.screen.get_height() / 5 + 3))
         self.collision()
     def collision(self):
-        if self.player.block.y <= 180 and self.player.block.x <= 400 and self.player.block.x >= 100:
-            self.player.block.y += 6
-        if self.player.block.y <= 180 and self.player.block.x == 100:
-            self.player.block.x -= 6
-            self.player.block.y -= 6
-        if self.player.block.y <= 180 and self.player.block.x == 400:
-            self.player.block.x += 6
-            self.player.block.y -= 6
+        pass
     def l_images(self,folder):
         files = listdir(folder)
         self.images = [pygame.image.load(folder + path) for path in files]
@@ -44,8 +37,45 @@ class World:
         self.purple = (127,0,255)
         self.pink = (255,0,255)
         self.cyan = (0,255,255)
+
+    def init_countable(self):
+        self.fps = 0
+        self.delay = 4
+        self.frames = 0
+    #returns different images after a certain delay defined in self.delay
+    def anim_object(self, modulo, obj):
+        if (self.fps == self.delay):
+            self.fps = 0
+            self.frames += 1
+        self.fps += 1
+        self.frames = self.frames % modulo
+        return obj[self.frames]
+    def init_anim(self):
+        pass  
 class City(World):
-    def __init__(self,screen):
+    def __init__(self,screen,player,map_x,map_y):
+        self.map = pygame.image.load("World/city.jpg")
         self.screen = screen
-        self.surface = pygame.Rect(0,self.screen.get_height()/5,screen.get_width(),self.screen.get_height()*4/5)
+        self.player = player
+        self.map_x = map_x
+        self.map_y = map_y
+        self.init_countable()
+        self.init_anim()
+        self.surface = pygame.Rect(0, self.screen.get_height()/5,screen.get_width(), self.screen.get_height()*4/5)
+        
         super().init_colors()
+    def init_countable(self):
+        super().init_countable()
+        self.d_fountain = 7
+
+    def anim_fountain(self): 
+        self.fount_block.x = self.map_x
+        self.fount_block.y = self.map_y  
+        return super().anim_object(self.d_fountain, self.fountain)
+
+    def init_anim(self):
+        fountain_fList = listdir("World/fountain")
+        self.fountain = [pygame.image.load("World/fountain/" + path) for path in fountain_fList]
+        self.fount_block = pygame.Rect(self.map_x + self.map.get_width()/2, self.map_y + self.map.get_height()/2,self.fountain[0].get_width(),self.fountain[0].get_height())
+    
+            
