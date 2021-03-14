@@ -1,0 +1,28 @@
+czego potrzebuje male miasteczko?:
+-rynku:
+	-straganow
+	-wpodopoi
+	-skrzyzowan
+	-zebrakow
+	-restauracji
+	-kowali
+-drzew
+-krzakow
+-terenu mieszkalnego:
+	-domkow sredniozamoznych
+	-domkow bogatych
+	-slumsow
+	-lawek
+	-parkow
+	-altanek
+	-ogrodzonych ogrodkow
+	-latarn
+	-stajni
+	-bud dla psow
+	-placow zabaw
+	-sklepikow osiedlowych
+	-krawca osiedlowego
+-glownego placu:
+	-szpitalu
+	-ratusza
+	-

@@ -1,0 +1,71 @@
+ok moje plany co do gry sa nastepujace:
+- mapa zostanie podzielona na lokacje: północ, południe, północny-wschód, północny zachód, południowy wschód i zachód, centrum wschód i zachód
+- do 5 poziomu lokacje zostają na miejscu. Od 3 poziomu będzie losowana szansa na to że któraś z lokacji wymieni się, ale w taki
+	sposób żeby to nie koordynowało w architekture drog. czyli: półocny wschód z północnym zachodem z użyciem pygame flip pionowo, północ z
+	południem z użyciem pygame.flip poziomo
+- zrobic minimape do pierwszych 3 poziomow aby gracz nauczyl sie jej
+- stworzyc liste osob do ktorych nalezy wyslac paczke np. kowal, cyrkowiec, duchowny
+- stworzyc po 7 poziomie priorytety np. kowal chce paczke natychmiast, duchowny chce paczke w przeciagu 20 sekund
+- przed kazdym poziomem ma byc krotka pokazowka, gdzie wyswietlamy liste osob, potem wyswietlamy mape ze zmianami lokacji
+	dodanymi polapkami. Pierwsza pokazowka 5 sekund druga 8 sekund.
+-dodam system poziomu trudnosci:
+*easy: 6 zyc
+*medium:4 życia
+*hard: 2 życia
+*no mercy: 1 życie
+-dodam system achievementow. achievementy beda przydzielane za:
+*przejscie 5 poziomow dla okreslonych poizomow trudnosci
+*przejscie 5 poziomow dla kazdego poziomu trudnosci
+*przejscie 10 poziomow dla okreslonych poizomow trudnosci
+*przejscie 10 poziomow dla kazdego poziomu trudnosci
+*przejscie 20 poziomow dla okreslonych poizomow trudnosci
+*przejscie 20 poziomow dla kazdego poziomu trudnosci
+-po kolizji z npcami gracz traci zycie i zaczyna poziom od nowa
+-jesli gracz stracil ostatnie zycie wyswietla sie game over i moze statystyki 
+dodac oddzielny event do liczenia punktow
+	-dodac animacje wyliczania pktow
+*postać wchodzi w kolizje z flaga
+*flaga znika, pojawia sie fade in papier z statystykami
+*timer dekrementuje sie o 1 co 2 fps (time.delay)
+*za sek dostajesz 5 pkt za 10 sek dostajesz dodatkowe 50 pkt
+*za 100 pkt dostajesz premie 10$
+*wyświetlasz drugie okienko z opcjami: Kontynuuj, Sklep
+dodac zmienna w character przechowujaca punkty i hajs
+
+PENSJA:
+co 3 lvl pensja+=20
+1 lvl =50
+3 lvl = 70
+6 lvl = 90
+9 lvl = 110
+12 lvl = 130
+15 lvl = 150
+18 lvl = 170
+21 lvl = 190
+
+PREMIE:
+co 3 lvl +2 pkt do za 1 sek 
+1 lvl = 5
+3 lvl = 7
+6 lvl = 9
+9 lvl = 11
+12 lvl = 13
+15 lvl = 15
+18 lvl = 17
+
+-dodac okienko wyswietlajace sklep i kontunuuj
+-dodac oddzielna klase sklep ktora:
+	*przyjmuje slownik atrybutów postaci i bufow
+	*ma funkcje start 
+-dodac klasy collision ktore beda obejmowac kolizje obiektow, kolizje postaci, 
+stworzyc funkcje ktora bedzie obslugiwac te kolizje
+
+timer levels:
+3 - 170
+4 - 160
+10 - 130
+12 - 110
+14 - 90
+16 - 70
+18 - 50
+20 - 30
